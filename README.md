@@ -25,7 +25,7 @@ yet another minimal neovim config .. but this time, it's pretty useful
 [Neovim Config Switcher - YouTube](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ```bash
-git clone https://github.com/megamind1230/doomnvim.git ~/.config/baka1
+git clone https://github.com/megamind1230/doomnvim.git ~/.config/two
 ```
 
 > add this to .bashrc {or your personal extension of it}
@@ -51,4 +51,4 @@ nvims() {
 bind '"\C-w":"nvims\n"'
 ```
 
-now can open it either through `ctrl w` OR just typing `baka1` .. enjoy
+now can open it either through `ctrl w` OR just typing `two` .. enjoy
