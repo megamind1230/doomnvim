@@ -1,3 +1,4 @@
+
 -- theme & transparency
 vim.cmd.colorscheme("unokai")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -87,6 +88,12 @@ vim.g.maplocalleader = " "                         -- Set local leader key (NEW)
 -- Normal mode mappings
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear search highlights" })
 
+-- config editing
+local map = vim.keymap.set
+-- map("n","<leader>nv", ":e $HOME/.config/nvim<Cr>", {desc = "go config"}) --go config default nvim
+-- map("n","<leader>nv", ":e $HOME/.config/one<Cr>", {desc = "go config"}) --go config one
+map("n","<leader>nv", ":e $HOME/.config/two<Cr>", {desc = "go config"}) --go config two
+
 -- Y to EOL
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
 
@@ -137,8 +144,6 @@ vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
--- Quick config editing
-vim.keymap.set("n", "<leader>nv", ":e ~/.config/nvimlite/init.lua<CR>", { desc = "Edit config" })
 
 -- ###################
 -- ============================================================================

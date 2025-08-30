@@ -2,7 +2,7 @@
 the simplest neovim config .. ig .. and still practical
 
 
-# simple-nvim
+# doomnvim
 
 yet another minimal neovim config .. but this time, it's pretty useful
 > btw not a single file config
@@ -25,7 +25,7 @@ yet another minimal neovim config .. but this time, it's pretty useful
 [Neovim Config Switcher - YouTube](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ```bash
-git clone https://github.com/megamind1230/simple-nvim.git ~/.config/baka1
+git clone https://github.com/megamind1230/doomnvim.git ~/.config/baka1
 ```
 
 > add this to .bashrc {or your personal extension of it}
@@ -35,9 +35,10 @@ alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias nvim-kick="NVIM_APPNAME=KickStart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
-alias baka1="NVIM_APPNAME=baka1 nvim"
+alias one="NVIM_APPNAME=one nvim"
+alias two="NVIM_APPNAME=two nvim"
 nvims() {
-  local items=("default" "KickStart" "LazyVim" "NvChad" "AstroNvim" "baka1")
+  local items=("default" "KickStart" "LazyVim" "NvChad" "AstroNvim" "one" "two")
   local config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z "$config" ]]; then
     echo "Nothing selected"

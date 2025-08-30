@@ -1,18 +1,14 @@
 return {
   'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
   opts = {},
-  -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
   config = function()
     require("oil").setup({
-      -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-      -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
-      default_file_explorer = false, -- bro just love netrw
+      default_file_explorer = false, -- bro just love netrw cuz Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
+      delete_to_trash = false, -- dont perma delete (:help oil-trash)
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
       columns = {
@@ -37,10 +33,7 @@ return {
         conceallevel = 3,
         concealcursor = "nvic",
       },
-      -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-      delete_to_trash = false,
-      -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-      skip_confirm_for_simple_edits = false,
+      skip_confirm_for_simple_edits = false, -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
       -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
       -- (:help prompt_save_on_select_new_entry)
       prompt_save_on_select_new_entry = true,
@@ -89,16 +82,17 @@ return {
       -- Set to false to disable all of the above keymaps
       use_default_keymaps = true,
       view_options = {
-        -- Show files and directories that start with "."
-        show_hidden = false,
+        show_hidden = true, --show dot files
         -- This function defines what is considered a "hidden" file
         is_hidden_file = function(name, bufnr)
           local m = name:match("^%.")
           return m ~= nil
         end,
-        -- This function defines what will never be shown, even when `show_hidden` is set
-        is_always_hidden = function(name, bufnr)
-          return false
+          -- is_always_hidden = function(name, bufnr) -- This function defines what will never be shown, even when `show_hidden` is set
+          --   return false
+          -- end,
+        is_always_hidden = function(name, _)
+          return name == '..' or name == '.git'
         end,
         -- Sort file names with numbers in a more intuitive order for humans.
         -- Can be "fast", true, or false. "fast" will turn it off for large directories.

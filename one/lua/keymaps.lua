@@ -21,7 +21,8 @@ map('i', '<C-l>', '<C-o>x', { noremap = true, silent = true, desc = "del word af
 map("n","YK", "va{OVy", {desc = "yank func on KnR indenting style"}) --yank knr func
 -- map("n","YA", "va{OjVy", {desc = "yank func on Allman indenting style"}) -- yank allman func --doesnt work somehow, just J on func to convert to KnR
 -- map("n","<leader>nv", ":e $HOME/.config/nvim<Cr>", {desc = "go config"}) --go config default nvim
-map("n","<leader>nv", ":e $HOME/.config/baka1<Cr>", {desc = "go config"}) --go config baka1
+map("n","<leader>nv", ":e $HOME/.config/one<Cr>", {desc = "go config"}) --go config one
+-- map("n","<leader>nv", ":e $HOME/.config/two<Cr>", {desc = "go config"}) --go config two
 
 
     -- -- Center screen when jumping
